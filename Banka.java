@@ -32,25 +32,7 @@
         boolean koniec = false;
         
     
-        
-        /*
-        System.out.println("Zoznam kont:");
-        for(int i=0; i<banky.size(); i++){
-            System.out.println(banky.get(i).getID()+"  - "+banky.get(i).getName());
-        }
-                        System.out.println("x: exit");
-                        while(!koniec)
-                        { 
-                            vyber2 = skener.nextLine();
-                            if(vyber2!="x"){
-                                banky.get(Integer.parseInt(vyber2)).bankaMenu();
-                                break;
-                            }else {koniec=true;
-                                    break;}
-                        }
-        */
-        
-        
+       
         while(!koniec)
         {
             BankAPP.clearScreen();
