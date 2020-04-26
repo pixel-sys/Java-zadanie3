@@ -32,10 +32,10 @@
         boolean koniec = false;
         
     
-       
+        BankAPP.clearScreen();
         while(!koniec)
         {
-            BankAPP.clearScreen();
+            
             System.out.println(getName()+":");
         
             System.out.println("1: Vypíš klientov");

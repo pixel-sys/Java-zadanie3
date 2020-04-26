@@ -3,8 +3,8 @@
 public class Hypoteka extends Ucet
 {
     private static double urok=3;
-    public Hypoteka(int id, int cisloUctu,int hotovost)
+    public Hypoteka(int hotovost)
     {
-        super(id,cisloUctu, hotovost);
+        this.hotovost=hotovost;
     }
 }
