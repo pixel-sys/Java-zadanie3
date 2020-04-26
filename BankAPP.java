@@ -22,41 +22,34 @@ public class BankAPP
         while(!koniec) 
         {
             System.out.println("Vyberte si moznost: ");
-            System.out.println("0: END PROGRAM");
+            System.out.println("x: exit");
             System.out.println("1: Vyber banku");
+            
             vyber = skener.nextLine();
-            
-            
+                      
                 switch (vyber) 
                 {
-                    case "0":
+                    case "x":
                         koniec = true;
-                    break;
+                        break;
                     
-                    case "1":// vyber = "";
-                    while(!koniec)
-                    {
-                        System.out.println("Vyberte si moznost: ");
-                        System.out.println("0: END PROGRAM");
-                        System.out.println("1: FajkaBanka");
-                        System.out.println("2: MamkaBanka");
-                        vyber2 = skener.nextLine();
-                        switch(vyber2)
-                        {   
-                            case "0":
-                                koniec=true;
-                            break;
-                            case "1":
-                                System.out.println("FajkaBanka");
+                    case "1":
+                        clearScreen();
+                        System.out.println("Zoznam bank:");
+                        for(int i=0; i<banky.size(); i++){
+                            System.out.println(banky.get(i).getID()+"  - "+banky.get(i).getName());
+                        }
+                        System.out.println("x: exit");
+                        while(!koniec)
+                        { 
+                            vyber2 = skener.nextLine();
+                            if(vyber2!="x"){
                                 banky.get(Integer.parseInt(vyber2)).bankaMenu();
-                            break;
-                            case "2":
-                                System.out.println("MamkaBanka");
-                                banky.get(Integer.parseInt(vyber2)).bankaMenu();
-                            break;                            
-                        }                        
-                    }   
-                    break;
+                                break;
+                            }else {koniec=true;
+                                    break;}
+                        }
+                                                
             }        
         }
                 

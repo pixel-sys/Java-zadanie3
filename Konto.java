@@ -13,8 +13,17 @@ public class Konto
         this.ucty= new int[10];
     }
     
-    public static void kontoMenu(int vyber)
+    public void kontoMenu()
     {
         
     }
+    
+    public int getID(){
+        return id;
+    }
+    
+    public String getName(){
+        return meno;
+    }
+    
 }
