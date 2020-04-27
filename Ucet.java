@@ -1,36 +1,28 @@
-import java.util.Random;
+
 public abstract class Ucet
 {
-    protected static int IDcounter=0;
-    int id;
+    private int id;
     int cisloUctu, hotovost;
-    /*
-    public Ucet(int hotovost)
-    {
-        id=IDcounter++;
-        cisloUctu=generateCisloUctu();
-        this.hotovost=hotovost;
-    }
+    double urok;
 
-    public Ucet()
-    {
-        id=IDcounter++;
-        cisloUctu=generateCisloUctu();
-        hotovost=0;
-    }
-    */
-    protected static int generateCisloUctu() 
-    {
-        int min=1000000;
-        int max=9999999;
-    Random r = new Random();
-    return r.nextInt((max - min) + 1) + min;
+    public Ucet(int id, int cisloUctu, int hotovost){
+        this.id=id;
+        this.cisloUctu=cisloUctu;
+        this.hotovost=hotovost;
+        urok=1;
     }
     
-    public void ucetMenu(){
-        System.out.println("vypis ucet MENU");
+        public Ucet(int id, int cisloUctu, int hotovost,double urok){
+        this.id=id;
+        this.cisloUctu=cisloUctu;
+        this.hotovost=hotovost;
+        this.urok=urok;
     }
-    
+            
+    public static void ucetMenu(){
+        System.out.println("Upravuj dany ucet:");
+        
+    }
     
     public int getID(){
         return id;

@@ -2,9 +2,15 @@
 
 public class FiremnyUcet extends BeznyUcet
 {
-    private static double urok=8;
-    public FiremnyUcet(int hotovost)
+    String nazovFirmy;
+    int ICO;
+    
+    
+    public FiremnyUcet(int id, int cisloUctu, int hotovost, String nazovFirmy, int ICO)
     {
-        super(hotovost);
+        super(id, cisloUctu, hotovost);
+        this.nazovFirmy=nazovFirmy;
+        this.ICO=ICO;
+        
     }
 }

@@ -2,18 +2,21 @@
 
 public class Konto 
 {
-    private static int IDcounter=0;
     private int id;
     String meno;
+    protected static int ucetID=0;
     Ucet [] ucty;
     
-    public Konto(String meno)
+    public Konto(String meno, int id)
     {
-        id=IDcounter++;
+        this.id=id;
         ucty= new Ucet [10];
+        /*
         for(int i=0; i<ucty.length; i++){
-            ucty[i]= new BeznyUcet();
+            ucty[i]= new BeznyUcet(ucetID,Banka.generateCisloUctu(),0);
            }
+        */  
+       
         this.meno=meno;
     }
     
@@ -47,19 +50,19 @@ public class Konto
                     vypisUcty();
                     break;
                 case "2":
+      /*not yet */
                     vypisUcty();
                     System.out.println("zadaj ID uctu:");
                     vyberUcet= skener.nextLine();
                     ucty[Integer.parseInt(vyberUcet)].ucetMenu();
                     break;
-                /*                
+                                
                 case "3":
                     System.out.println("Pridaj ucet:");
-                    System.out.println("Zadaj hotovost:");
+                    pridajUcetMenu();
                     menoKlienta= skener.nextLine();
-                    klienti.add(new Konto(menoKlienta));
                     break;
-                  */  
+                    
             }
         }
     }    
@@ -76,7 +79,73 @@ public class Konto
         //BankAPP.clearScreen();
         System.out.println("Zoznam uctov:");
            for(int i=0; i<ucty.length; i++){
+               if(ucty[i]!=null){
               System.out.println(ucty[i].getID()+" - "+ucty[i].getCisloUctu()+" - "+ucty[i].getHotovost());
-           }
+               }
+            }
+    }
+    
+    private void pridajUcetMenu(){
+        Scanner skener = new Scanner(System.in);
+        String vyber="";
+        boolean koniec = false;
+        int hotovost=0;
+        double urok;
+        String menoFirmy="";
+        int ICO;
+        int dobaSplacania;
+       BankAPP.clearScreen();
+       while(!koniec){
+            System.out.println("vyber typ uctu ucetu:");
+            System.out.println("1:  Bezny ucet:");
+            System.out.println("11: Sporiaci ucet ");
+            System.out.println("12: Firemny ucet");        
+            System.out.println("2:  Hypoteka");
+            System.out.println("x: koniec");
+            
+            vyber= skener.nextLine();
+            switch(vyber){
+                case "1":
+                    System.out.println("zadaj hotovost:");
+                    hotovost= skener.nextInt();
+                    ucty[ucetID]=new BeznyUcet(ucetID,Banka.generateCisloUctu(),hotovost);
+                    ucetID++;
+                    break;
+                                
+                case "11":
+                    System.out.println("zadaj hotovost:");
+                    hotovost= skener.nextInt();
+                    System.out.println("zadaj urok:");
+                    urok= skener.nextDouble();
+                    ucty[ucetID]=new SporiaciUcet(ucetID,Banka.generateCisloUctu(),hotovost,urok);
+                    ucetID++;
+                    break;
+                
+                case "12":
+                    System.out.println("zadaj hotovost:");
+                    hotovost= skener.nextInt();
+                    System.out.println("zadaj nazov firmy:");
+                    menoFirmy= skener.nextLine();
+                    System.out.println("zadaj ICO:");
+                    ICO= skener.nextInt();
+                    ucty[ucetID]=new FiremnyUcet(ucetID,Banka.generateCisloUctu(),hotovost,menoFirmy,ICO);
+                    ucetID++;
+                    break;
+                    
+                case "2":
+                    System.out.println("zadaj hotovost:");
+                    hotovost= skener.nextInt();
+                    System.out.println("zadaj dobu splacania:");
+                    dobaSplacania= skener.nextInt();
+                    ucty[ucetID]=new Hypoteka(ucetID,Banka.generateCisloUctu(),hotovost,dobaSplacania);
+                    ucetID++;
+                    break;
+                    
+                case "x":
+                    koniec=true;
+                    break;    
+            }   
+        
+       }
     }
 }

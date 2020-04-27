@@ -1,10 +1,19 @@
 
 import java.util.Random;
+import java.util.Scanner;
+
+
 public class PlatobnaKarta implements KartaAble
 {
-    int cisloKarty,PIN;
+    int cisloKarty;
+    String PIN;
     
-    public PlatobnaKarta(int PIN,Karta typKarty)
+    public PlatobnaKarta(){
+     cisloKarty=generateCardNumber();
+     PIN="0000";
+    }
+    
+    public PlatobnaKarta(String PIN,Karta typKarty)
     {
         cisloKarty=generateCardNumber();
         this.PIN=PIN;
@@ -24,10 +33,10 @@ public class PlatobnaKarta implements KartaAble
     
     private static int generateCardNumber() 
     {
-        int min=10000;
-        int max=99999;
-	Random r = new Random();
-	return r.nextInt((max - min) + 1) + min;
+        int min=100;
+        int max=999;
+    Random r = new Random();
+    return r.nextInt((max - min) + 1) + min;
     }
     
     public int getCisloKarty()
@@ -35,15 +44,28 @@ public class PlatobnaKarta implements KartaAble
         return cisloKarty;
     }
     
-    public boolean setKartaPIN(int oldPIN, int newPIN)
-    {
-        oldPIN=PIN;
-        if (oldPIN==newPIN)
+    public boolean checkOldPIN(){
+        Scanner skener = new Scanner(System.in);
+        String in="";
+        System.out.println("zadaj stare heslo:");
+        in = skener.nextLine();
+           
+        if(in==PIN) return true;
+            else return false; 
+    }
+    
+    public boolean setKartaPIN()
+    {   Scanner skener = new Scanner(System.in);
+        String newPIN="";
+        
+        if (checkOldPIN())
             {
-                return false;
+                System.out.println("zadaj nove heslo:");
+                newPIN = skener.nextLine();
+                PIN=newPIN;
+                return true;
             }
-        else PIN=newPIN;    
-        return true;
+        else return false;
     }
     
 }

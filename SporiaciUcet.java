@@ -2,9 +2,11 @@
 
 public class SporiaciUcet extends BeznyUcet
 {
-    private static double urok=1;
-    public SporiaciUcet(int hotovost)
+    
+    public SporiaciUcet(int id, int cisloUctu, int hotovost,double urok)
     {
-        super(hotovost);
+        super(id, cisloUctu, hotovost,urok);
+        
     }
 }
+

@@ -1,19 +1,29 @@
 
-
 public class BeznyUcet extends Ucet
 {
-    //int [] karta;
-    public BeznyUcet(int hotovost)
+    PlatobnaKarta [] karta;
+    
+    public BeznyUcet(int id, int cisloUctu, int hotovost)
     {
-        this.hotovost=hotovost;
-        cisloUctu= generateCisloUctu();
-        id= IDcounter;        
+        super (id, cisloUctu, hotovost);
+        karta = new PlatobnaKarta [5];
+        for(int i=0; i<karta.length; i++){
+            karta[i]= new PlatobnaKarta();
+           }      
+          
     }
     
-    public BeznyUcet()
+    public BeznyUcet(int id, int cisloUctu, int hotovost, double urok)
     {
-        cisloUctu= generateCisloUctu();
-        id= IDcounter;
-        hotovost=0;
+        super (id, cisloUctu, hotovost,urok);
+        karta = new PlatobnaKarta [5];
+        for(int i=0; i<karta.length; i++){
+            karta[i]= new PlatobnaKarta();
+           }      
+          
     }
+    
+
+    
+    
 }

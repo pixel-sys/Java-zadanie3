@@ -1,10 +1,15 @@
 
 
 public class Hypoteka extends Ucet
-{
-    private static double urok=3;
-    public Hypoteka(int hotovost)
+{   int dobaSplacania;
+    double vyskaSplatky;
+    
+    
+    public Hypoteka(int id, int cisloUctu, int hotovost,int dobaSplacania)
     {
-        this.hotovost=hotovost;
+        super (id, cisloUctu, hotovost);
+        this.dobaSplacania=dobaSplacania;
+        vyskaSplatky=hotovost/dobaSplacania;
+               
     }
 }

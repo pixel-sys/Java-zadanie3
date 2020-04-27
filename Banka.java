@@ -1,16 +1,27 @@
     import java.util.Scanner;
     import java.util.ArrayList;
+    import java.util.Random;
+    
     public class Banka
     {
     String meno; 
     ArrayList<Konto> klienti;
-    private static int IDcounter=0;
+    private static int kontoID=0;
     private int id;
-    public Banka(String meno)
+    
+    public Banka(String meno,int id)
     {
-        id=IDcounter++;
+        this.id=id;
         klienti=new ArrayList<Konto>();
         this.meno=meno;
+    }
+    
+    public static int generateCisloUctu() 
+    {
+        int min=1000000;
+        int max=9999999;
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
     }
     
     public void vypisKont()
@@ -64,7 +75,8 @@
                     System.out.println("Pridaj klienta:");
                     System.out.println("Zadaj meno klienta:");
                     menoKlienta= skener.nextLine();
-                    klienti.add(new Konto(menoKlienta));
+                    klienti.add(new Konto(menoKlienta,kontoID));
+                    kontoID++;
                     break;
                     
             }

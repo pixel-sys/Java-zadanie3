@@ -3,8 +3,22 @@ import java.util.ArrayList;
 
 public class BankAPP
 {
+    private static int bankaID=0;
+    private static ArrayList<Banka> banky=new ArrayList<Banka>();
+    
+    
     public static void clearScreen() {
         System.out.print('\u000C');
+    }
+    
+    public static void pridajBanku(){
+     banky.add(new Banka("bez_mena",bankaID));  
+     bankaID++;
+    }
+    
+    public static void pridajBanku(String meno){
+     banky.add(new Banka(meno, bankaID));  
+     bankaID++;
     }
     
     public static void main(String[] args)
@@ -14,9 +28,9 @@ public class BankAPP
         String vyber = "";
         String vyber2="";
         String vstup = "";
-        ArrayList<Banka> banky=new ArrayList<Banka>();
-        banky.add(new Banka("FajkaBanka"));
-        banky.add(new Banka("MamkaBanka"));
+                
+        pridajBanku();
+        pridajBanku("MamkaBanka");
         
         clearScreen();
         while(!koniec) 
