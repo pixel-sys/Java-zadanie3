@@ -1,4 +1,5 @@
-package src;
+
+import java.util.Scanner;
 
 
 public class BeznyUcet extends Ucet
@@ -26,6 +27,44 @@ public class BeznyUcet extends Ucet
     }
     
 
+    public void setHotovost(int hotovost){
+        this.hotovost=hotovost;
+    }
     
+    public void setUrok(double urok){
+        this.urok=urok;
+    }
+//    
+//    
     
+     
+    public  void beznyUcetMenu(){
+        Scanner skener = new Scanner(System.in);
+        String vyber = "";
+        boolean koniec=false;
+        
+        
+        while(!koniec)
+        {   BankAPP.clearScreen();
+            System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
+                    " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
+                    " urok: "+ getUrok());
+            
+        
+            
+            vyber = skener.nextLine();
+            
+            switch(vyber)
+            {
+                case "x":
+                    koniec=true;
+                    break;
+                        
+            }
+        }
+    }
 }
+
+    
+    
+
