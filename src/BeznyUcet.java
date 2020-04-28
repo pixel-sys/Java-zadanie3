@@ -1,8 +1,4 @@
-package src;
-
-
 import java.util.Scanner;
-
 
 public class BeznyUcet extends Ucet
 {
@@ -36,9 +32,7 @@ public class BeznyUcet extends Ucet
     public void setUrok(double urok){
         this.urok=urok;
     }
-//    
-//    
-    
+   
      
     public  void beznyUcetMenu(){
         Scanner skener = new Scanner(System.in);

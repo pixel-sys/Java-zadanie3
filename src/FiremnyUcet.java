@@ -1,8 +1,3 @@
-package src;
-
-
-
-
 
 public class FiremnyUcet extends BeznyUcet
 {

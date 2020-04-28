@@ -1,8 +1,5 @@
-package src;
 
-
-
-    import java.util.Scanner;
+import java.util.Scanner;
 
 public abstract class Ucet
 {
@@ -12,7 +9,7 @@ public abstract class Ucet
     double urok;
     String typUctu="";
    
-
+// constructors
     public Ucet(int id,String typ, int cisloUctu, int hotovost){
         this.id=id;
         this.typUctu=typ;
@@ -28,7 +25,9 @@ public abstract class Ucet
         this.hotovost=hotovost;
         this.urok=urok;
     }
-            
+     
+    
+ //getters    
     public static int getID(){
         return id;
     }
@@ -47,6 +46,15 @@ public abstract class Ucet
     
     protected double getUrok(){
         return urok;
+    }
+
+//setters
+    protected void setUrok(double urok){
+        this.urok=urok;
+    }
+
+    protected void setHotovost(int hotovost){
+        this.hotovost=hotovost;
     }
     
     public static void ucetMenu(String typUctu){

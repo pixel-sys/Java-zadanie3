@@ -1,8 +1,3 @@
-package src;
-
-
-
-
 
 public class Hypoteka extends Ucet
 {   int dobaSplacania;
