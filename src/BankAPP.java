@@ -35,7 +35,7 @@ public class BankAPP
         clearScreen();
         while(!koniec) 
         {
-            System.out.println("Vyberte si moznost: ");
+            System.out.println("Vyberte si z moznosti: ");
             System.out.println("x: exit");
             System.out.println("1: Vyber banku");
             
