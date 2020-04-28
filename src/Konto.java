@@ -1,6 +1,5 @@
-package src;
 
-    import java.util.Scanner;
+import java.util.Scanner;
 
 public class Konto 
 {
@@ -14,17 +13,29 @@ public class Konto
     {
         this.id=id;
         ucty= new Ucet [10];
-        /*
-        for(int i=0; i<ucty.length; i++){
-            ucty[i]= new BeznyUcet(ucetID,Banka.generateCisloUctu(),0);
-           }
-        */  
-       
         this.meno=meno;
     }
     
-    public void kontoMenu()
-    {
+    
+    public int getID(){
+        return id;
+    }
+    
+    public String getName(){
+        return meno;
+    }
+    
+    private void vypisUcty(){
+        //BankAPP.clearScreen();
+        System.out.println("Zoznam uctov:");
+           for(int i=0; i<ucty.length; i++){
+               if(ucty[i]!=null){
+              System.out.println(ucty[i].getID()+" - "+ucty[i].getCisloUctu()+" - "+ucty[i].getTypUctu() +" - "+ucty[i].getHotovost());
+               }
+            }
+    }
+    
+    public void kontoMenu(){
         Scanner skener = new Scanner(System.in);
         String vyberUcet = "";
         String menoKlienta = "";
@@ -74,25 +85,7 @@ public class Konto
             }
         }
     }    
-    
-    public int getID(){
-        return id;
-    }
-    
-    public String getName(){
-        return meno;
-    }
-    
-    private void vypisUcty(){
-        //BankAPP.clearScreen();
-        System.out.println("Zoznam uctov:");
-           for(int i=0; i<ucty.length; i++){
-               if(ucty[i]!=null){
-              System.out.println(ucty[i].getID()+" - "+ucty[i].getCisloUctu()+" - "+ucty[i].getHotovost());
-               }
-            }
-    }
-    
+        
     private void pridajUcetMenu(){
         Scanner skener = new Scanner(System.in);
         String vyber="";

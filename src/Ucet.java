@@ -1,14 +1,14 @@
-package src;
+
 
     import java.util.Scanner;
 
 public abstract class Ucet
 {
     Scanner skener = new Scanner(System.in);
-    private int id;
+    private static int id;
     int cisloUctu, hotovost;
     double urok;
-    private String typUctu="";
+    String typUctu="";
    
 
     public Ucet(int id,String typ, int cisloUctu, int hotovost){
@@ -19,7 +19,7 @@ public abstract class Ucet
         urok=1;
     }
     
-        public Ucet(int id,String typ, int cisloUctu, int hotovost,double urok){
+    public Ucet(int id,String typ, int cisloUctu, int hotovost,double urok){
         this.id=id;
         this.typUctu=typ;
         this.cisloUctu=cisloUctu;
@@ -27,6 +27,26 @@ public abstract class Ucet
         this.urok=urok;
     }
             
+    public static int getID(){
+        return id;
+    }
+    
+    public  String getTypUctu(){
+        return typUctu;
+    }
+    
+    protected int getCisloUctu(){
+        return cisloUctu; 
+    }
+    
+    protected int getHotovost(){
+        return hotovost;
+    }
+    
+    protected double getUrok(){
+        return urok;
+    }
+    
     public static void ucetMenu(String typUctu){
         
         /*
@@ -45,22 +65,6 @@ public abstract class Ucet
                 
         }
         
-    }
-    
-    public int getID(){
-        return id;
-    }
-    
-    public String getTypUctu(){
-        return typUctu;
-    }
-    
-    public int getCisloUctu(){
-        return cisloUctu; 
-    }
-    
-    public int getHotovost(){
-        return hotovost;
     }
     
 }
