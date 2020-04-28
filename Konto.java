@@ -7,6 +7,7 @@ public class Konto
     protected static int ucetID=0;
     Ucet [] ucty;
     
+    
     public Konto(String meno, int id)
     {
         this.id=id;
@@ -50,11 +51,16 @@ public class Konto
                     vypisUcty();
                     break;
                 case "2":
-      /*not yet */
+                /*not yet */
                     vypisUcty();
                     System.out.println("zadaj ID uctu:");
                     vyberUcet= skener.nextLine();
-                    ucty[Integer.parseInt(vyberUcet)].ucetMenu();
+                    for(int i=0; i<ucty.length; i++){
+                        if(ucty[i]!=null && ucty[i].getID()==Integer.parseInt(vyberUcet)){
+                            ucty[i].ucetMenu(ucty[i].getTypUctu());
+                            break;
+                        }
+                    }        
                     break;
                                 
                 case "3":
@@ -90,10 +96,10 @@ public class Konto
         String vyber="";
         boolean koniec = false;
         int hotovost=0;
-        double urok;
+        double urok=0;
         String menoFirmy="";
-        int ICO;
-        int dobaSplacania;
+        int ICO=0;
+        int dobaSplacania=0;
        BankAPP.clearScreen();
        while(!koniec){
             System.out.println("vyber typ uctu ucetu:");
@@ -108,7 +114,7 @@ public class Konto
                 case "1":
                     System.out.println("zadaj hotovost:");
                     hotovost= skener.nextInt();
-                    ucty[ucetID]=new BeznyUcet(ucetID,Banka.generateCisloUctu(),hotovost);
+                    ucty[ucetID]=new BeznyUcet(ucetID,"Bezny",Banka.generateCisloUctu(),hotovost);
                     ucetID++;
                     break;
                                 
@@ -117,7 +123,7 @@ public class Konto
                     hotovost= skener.nextInt();
                     System.out.println("zadaj urok:");
                     urok= skener.nextDouble();
-                    ucty[ucetID]=new SporiaciUcet(ucetID,Banka.generateCisloUctu(),hotovost,urok);
+                    ucty[ucetID]=new SporiaciUcet(ucetID,"Sporiaci",Banka.generateCisloUctu(),hotovost,urok);
                     ucetID++;
                     break;
                 
@@ -128,7 +134,7 @@ public class Konto
                     menoFirmy= skener.nextLine();
                     System.out.println("zadaj ICO:");
                     ICO= skener.nextInt();
-                    ucty[ucetID]=new FiremnyUcet(ucetID,Banka.generateCisloUctu(),hotovost,menoFirmy,ICO);
+                    ucty[ucetID]=new FiremnyUcet(ucetID,"Firemny",Banka.generateCisloUctu(),hotovost,menoFirmy,ICO);
                     ucetID++;
                     break;
                     
@@ -137,7 +143,7 @@ public class Konto
                     hotovost= skener.nextInt();
                     System.out.println("zadaj dobu splacania:");
                     dobaSplacania= skener.nextInt();
-                    ucty[ucetID]=new Hypoteka(ucetID,Banka.generateCisloUctu(),hotovost,dobaSplacania);
+                    ucty[ucetID]=new Hypoteka(ucetID,"Hypo",Banka.generateCisloUctu(),hotovost,dobaSplacania);
                     ucetID++;
                     break;
                     

@@ -5,9 +5,9 @@ public class Hypoteka extends Ucet
     double vyskaSplatky;
     
     
-    public Hypoteka(int id, int cisloUctu, int hotovost,int dobaSplacania)
+    public Hypoteka(int id,String typUctu, int cisloUctu, int hotovost,int dobaSplacania)
     {
-        super (id, cisloUctu, hotovost);
+        super (id,typUctu, cisloUctu, hotovost);
         this.dobaSplacania=dobaSplacania;
         vyskaSplatky=hotovost/dobaSplacania;
                

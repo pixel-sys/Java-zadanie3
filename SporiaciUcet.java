@@ -3,9 +3,9 @@
 public class SporiaciUcet extends BeznyUcet
 {
     
-    public SporiaciUcet(int id, int cisloUctu, int hotovost,double urok)
+    public SporiaciUcet(int id,String typUctu, int cisloUctu, int hotovost,double urok)
     {
-        super(id, cisloUctu, hotovost,urok);
+        super(id,typUctu, cisloUctu, hotovost,urok);
         
     }
 }
