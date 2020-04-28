@@ -1,3 +1,5 @@
+package src;
+
     import java.util.Scanner;
 
 public abstract class Ucet
