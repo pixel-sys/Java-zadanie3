@@ -38,7 +38,7 @@ public class BeznyUcet extends Ucet
     
     
 //menu
-    public  void beznyUcetMenu(){
+    public void beznyUcetMenu(){
         Scanner skener = new Scanner(System.in);
         String vyber = "";
         boolean koniec=false;

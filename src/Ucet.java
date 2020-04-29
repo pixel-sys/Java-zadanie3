@@ -1,6 +1,7 @@
 
 import java.util.Scanner;
 
+
 public abstract class Ucet
 {
     Scanner skener = new Scanner(System.in);
@@ -66,7 +67,7 @@ public abstract class Ucet
     }
     
     
-    public static void ucetMenu(String typUctu){
+    public void ucetMenu(String typUctu){
         
         /*
         System.out.println("Upravuj dany ucet:");
@@ -75,7 +76,7 @@ public abstract class Ucet
         switch(typUctu)
         {
             case "Bezny": 
-                    System.out.println("Som v beznom ucete!!!!!!");
+                    
             case "Sporiaci":
                              
             case "Firemny":

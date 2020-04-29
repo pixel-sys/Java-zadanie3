@@ -1,6 +1,9 @@
 
 public interface KartaAble
 {
-    public int getCisloKarty(); 
+  
+//getters    
+    public int getCisloKarty();
+    
     public boolean setKartaPIN();
 }

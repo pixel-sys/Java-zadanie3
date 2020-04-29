@@ -7,40 +7,30 @@ public class PlatobnaKarta implements KartaAble
 {
     int cisloKarty;
     String PIN;
-    
+  //constructors
+          
     public PlatobnaKarta(){
      cisloKarty=generateCardNumber();
      PIN="0000";
     }
     
+    public PlatobnaKarta(String PIN){
+     cisloKarty=generateCardNumber();
+     this.PIN=PIN;
+    }
+    
     public PlatobnaKarta(String PIN,Karta typKarty){
         cisloKarty=generateCardNumber();
         this.PIN=PIN;
-        switch (typKarty) 
-        { 
-        case VISA: 
-            System.out.println("VISA");
-            break; 
-        case MASTERCARD: 
-            System.out.println("MASTERCARD"); 
-            break; 
-        case MAESTRO:
-            System.out.println("MAESTRO");
-            break; 
-        } 
     }
-    
+  //setters  
     private static int generateCardNumber(){
         int min=100;
         int max=999;
     Random r = new Random();
     return r.nextInt((max - min) + 1) + min;
     }
-    
-    public int getCisloKarty(){
-        return cisloKarty;
-    }
-    
+  
     public boolean checkOldPIN(){
         Scanner skener = new Scanner(System.in);
         String in="";
@@ -51,7 +41,8 @@ public class PlatobnaKarta implements KartaAble
             else return false; 
     }
     
-    public boolean setKartaPIN(){   Scanner skener = new Scanner(System.in);
+    public boolean setKartaPIN(){   
+        Scanner skener = new Scanner(System.in);
         String newPIN="";
         
         if (checkOldPIN())
@@ -63,5 +54,14 @@ public class PlatobnaKarta implements KartaAble
             }
         else return false;
     }
+  
+//getters
+    public int getCisloKarty(){
+        return cisloKarty;
+    }
+    
+    
+    
+    
     
 }
