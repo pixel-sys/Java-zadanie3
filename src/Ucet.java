@@ -5,7 +5,7 @@ import java.util.Scanner;
 public abstract class Ucet
 {
     Scanner skener = new Scanner(System.in);
-    private static int id;
+    private  int id;
     int cisloUctu, hotovost;
     double urok;
     String typUctu="";
@@ -29,7 +29,7 @@ public abstract class Ucet
      
     
  //getters    
-    public static int getID(){
+    public int getID(){
         return id;
     }
     

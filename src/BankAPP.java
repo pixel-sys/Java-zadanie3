@@ -25,8 +25,7 @@ public class BankAPP
     {
         Scanner skener = new Scanner(System.in);
         boolean koniec = false;
-        String vyber = "";
-        String vyber2="";
+        String vyber;
         String vstup = "";
                 
         pridajBanku();
@@ -54,12 +53,18 @@ public class BankAPP
                             System.out.println(banky.get(i).getID()+"  - "+banky.get(i).getName());
                         }
                         System.out.println("x: exit");
-                        while(!koniec)
-                        { 
-                            vyber2 = skener.nextLine();
-                            if(vyber2!="x"){
-                                banky.get(Integer.parseInt(vyber2)).bankaMenu();
-                                break;
+                        while(!koniec){ 
+                            vyber = skener.nextLine();
+                            if(vyber!="x"){
+                                for(int i=0; i<banky.size(); i++){
+                                    if(banky.get(i).getID()==Integer.parseInt(vyber)){
+                                        banky.get(Integer.parseInt(vyber)).bankaMenu();
+                                        break;
+                                    }    
+                                    if(i==banky.size()-1){
+                                        System.out.println("Banka sa nenasla!");
+                                    }
+                                }
                             }else {koniec=true;
                                     break;}
                         }

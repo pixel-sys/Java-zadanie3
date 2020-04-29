@@ -62,7 +62,8 @@ import java.util.Random;
                 case "1":
                     System.out.println("Zoznam klientov:");
                     for(int i=0; i<klienti.size(); i++){
-                        System.out.println(klienti.get(i).getID()+"  - "+klienti.get(i).getName());
+                        System.out.println(klienti.get(i).getID()+"  - "
+                                +klienti.get(i).getName());
                     }
          
                                            break;
