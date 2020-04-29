@@ -64,13 +64,13 @@ import java.util.Random;
                     for(int i=0; i<klienti.size(); i++){
                         System.out.println(klienti.get(i).getID()+"  - "+klienti.get(i).getName());
                     }
-                    break;
+         
+                                           break;
                 case "2":
                     System.out.println("zadaj ID klienta");
                     vyberKonto= skener.nextLine();
                     klienti.get(Integer.parseInt(vyberKonto)).kontoMenu();
                     break;
-                                
                 case "3":
                     System.out.println("Pridaj klienta:");
                     System.out.println("Zadaj meno klienta:");

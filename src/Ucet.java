@@ -66,25 +66,6 @@ public abstract class Ucet
         this.hotovost-=vklad;
     }
     
-    
-    public void ucetMenu(String typUctu){
-        
-        /*
-        System.out.println("Upravuj dany ucet:");
-        BankAPP.clearScreen();       
-        */
-        switch(typUctu)
-        {
-            case "Bezny": 
-                    
-            case "Sporiaci":
-                             
-            case "Firemny":
-                         
-            case "Hypo":
-                
-        }
-        
-    }
-    
+    public abstract void ucetMenu();
+           
 }

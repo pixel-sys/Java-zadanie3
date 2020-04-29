@@ -37,7 +37,8 @@ public class FiremnyUcet extends BeznyUcet
     }
     
 //menu
-    public  void SporiaciUcetMenu(){
+    @Override
+    public void ucetMenu(){
         Scanner skener = new Scanner(System.in);
         String vyber = "";
         boolean koniec=false;

@@ -70,12 +70,12 @@ public class Konto
                     vyberUcet= skener.nextLine();
                     for(int i=0; i<ucty.length; i++){
                         if(ucty[i]!=null && ucty[i].getID()==Integer.parseInt(vyberUcet)){
-                            ucty[i].ucetMenu(ucty[i].getTypUctu());
+                            ucty[i].ucetMenu();
                             break;
                         }
                     }        
                     break;
-                                
+                    
                 case "3":
                     System.out.println("Pridaj ucet:");
                     pridajUcetMenu();
