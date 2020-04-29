@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class BeznyUcet extends Ucet
 {
     PlatobnaKarta [] karta;
-    
+
+// constructors    
     public BeznyUcet(int id,String typUctu, int cisloUctu, int hotovost)
     {
         super (id,typUctu, cisloUctu, hotovost);
@@ -24,34 +25,59 @@ public class BeznyUcet extends Ucet
           
     }
     
+//getters
 
-    public void setHotovost(int hotovost){
-        this.hotovost=hotovost;
+    protected void vypisKarty(){
+        for(int i=0; i<karta.length; i++){
+            System.out.println("cislo k: "+karta[i].getCisloKarty());
+        }
     }
+
+//setters
+
     
-    public void setUrok(double urok){
-        this.urok=urok;
-    }
-   
-     
+    
+//menu
     public  void beznyUcetMenu(){
         Scanner skener = new Scanner(System.in);
         String vyber = "";
         boolean koniec=false;
         
         
-        while(!koniec)
-        {   BankAPP.clearScreen();
+        while(!koniec){
+            BankAPP.clearScreen();
+            
             System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
                     " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
                     " urok: "+ getUrok());
             
-        
+            System.out.println("1) vloz hotovost");
+            System.out.println("2) vyber hotovost");
+            System.out.println("3) zmen urok");
+            System.out.println("4) vypis karty");
             
             vyber = skener.nextLine();
-            
             switch(vyber)
             {
+                case "1":
+                    vyber = skener.nextLine();
+                    priratajHotovost(Integer.parseInt(vyber));
+                    break;
+                    
+                case "2":
+                    vyber = skener.nextLine();
+                    odratajHotovost(Integer.parseInt(vyber));    
+                    break;
+                    
+                case "3":
+                    vyber = skener.nextLine();
+                    setUrok(Double.valueOf(vyber));
+                    break;
+                    
+                case "4":
+                    vypisKarty();
+                    break;
+                    
                 case "x":
                     koniec=true;
                     break;

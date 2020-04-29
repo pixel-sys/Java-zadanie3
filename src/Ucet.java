@@ -57,6 +57,15 @@ public abstract class Ucet
         this.hotovost=hotovost;
     }
     
+    protected void priratajHotovost(int vklad){
+        this.hotovost+=vklad;
+    }
+    
+    protected void odratajHotovost(int vklad){
+        this.hotovost-=vklad;
+    }
+    
+    
     public static void ucetMenu(String typUctu){
         
         /*

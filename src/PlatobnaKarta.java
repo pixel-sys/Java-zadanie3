@@ -13,8 +13,7 @@ public class PlatobnaKarta implements KartaAble
      PIN="0000";
     }
     
-    public PlatobnaKarta(String PIN,Karta typKarty)
-    {
+    public PlatobnaKarta(String PIN,Karta typKarty){
         cisloKarty=generateCardNumber();
         this.PIN=PIN;
         switch (typKarty) 
@@ -31,16 +30,14 @@ public class PlatobnaKarta implements KartaAble
         } 
     }
     
-    private static int generateCardNumber() 
-    {
+    private static int generateCardNumber(){
         int min=100;
         int max=999;
     Random r = new Random();
     return r.nextInt((max - min) + 1) + min;
     }
     
-    public int getCisloKarty()
-    {
+    public int getCisloKarty(){
         return cisloKarty;
     }
     
@@ -54,8 +51,7 @@ public class PlatobnaKarta implements KartaAble
             else return false; 
     }
     
-    public boolean setKartaPIN()
-    {   Scanner skener = new Scanner(System.in);
+    public boolean setKartaPIN(){   Scanner skener = new Scanner(System.in);
         String newPIN="";
         
         if (checkOldPIN())
