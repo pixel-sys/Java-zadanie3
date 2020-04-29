@@ -4,18 +4,16 @@ import java.util.Scanner;
 public class Konto 
 {
     private int id;
-    String meno;
+    private String meno;
     protected static int ucetID=0;
     Ucet [] ucty;
     
     
-    public Konto(String meno, int id)
-    {
+    public Konto(String meno, int id){
         this.id=id;
         ucty= new Ucet [10];
         this.meno=meno;
     }
-    
     
     public int getID(){
         return id;
@@ -26,11 +24,13 @@ public class Konto
     }
     
     private void vypisUcty(){
-        //BankAPP.clearScreen();
         System.out.println("Zoznam uctov:");
            for(int i=0; i<ucty.length; i++){
                if(ucty[i]!=null){
-              System.out.println(ucty[i].getID()+" - "+ucty[i].getCisloUctu()+" - "+ucty[i].getTypUctu() +" - "+ucty[i].getHotovost());
+                System.out.println(ucty[i].getID()
+                +" - "+ucty[i].getCisloUctu()
+                +" - "+ucty[i].getTypUctu() 
+                +" - "+ucty[i].getHotovost());
                }
             }
     }
@@ -45,15 +45,14 @@ public class Konto
         while(!koniec)
         {
             
-            System.out.println("Nazov konta:");
-            System.out.println(getName()+":");
-        
+            System.out.println("Konto:"+ getName());        
             System.out.println("1: Vypíš uctov");
             System.out.println("2: Ucet manažment");
             System.out.println("3: Pridaj ucet");
+            System.out.println("4: Zmaz konto");
             System.out.println("x: Koniec");
-            vyberUcet = skener.nextLine();
             
+            vyberUcet = skener.nextLine();
             switch(vyberUcet)
             {
                 case "x": 

@@ -10,7 +10,8 @@ public class BankAPP
     public static void clearScreen() {
         System.out.print('\u000C');
     }
-    
+
+//constructors    
     public static void pridajBanku(){
      banky.add(new Banka("bez_mena",bankaID));  
      bankaID++;
@@ -20,9 +21,27 @@ public class BankAPP
      banky.add(new Banka(meno, bankaID));  
      bankaID++;
     }
+
+//getters
+    public static void vypisBanky(){
+        System.out.println("Zoznam bank:");
+            for(int i=0; i<banky.size(); i++){
+                System.out.println(i+"  - "+banky.get(i).getName());
+            }
+    }
+
+    private static boolean existINarraylist(String index){
+        return (Integer.parseInt(index)<=banky.size()-1 
+                && Integer.parseInt(index)>=0);
+    }
     
-    public static void main(String[] args)
-    {
+//setters 
+    public static void vymazBanku(String ID){
+        banky.remove(Integer.parseInt(ID));
+    }
+    
+//menu    
+    public static void main(String[] args){
         Scanner skener = new Scanner(System.in);
         boolean koniec = false;
         String vyber;
@@ -31,13 +50,14 @@ public class BankAPP
         pridajBanku();
         pridajBanku("MamkaBanka");
         
-        clearScreen();
         while(!koniec) 
-        {
+        {   clearScreen();
             System.out.println("Vyberte si z moznosti: ");
-            System.out.println("x: exit");
             System.out.println("1: Vyber banku");
-            
+            System.out.println("2: pridaj banku (bez mena)");
+            System.out.println("3: pridaj banku (s menom)");
+            System.out.println("4: Vymaz banku");
+            System.out.println("x: exit");
             vyber = skener.nextLine();
                       
                 switch (vyber) 
@@ -48,27 +68,34 @@ public class BankAPP
                     
                     case "1":
                         clearScreen();
-                        System.out.println("Zoznam bank:");
-                        for(int i=0; i<banky.size(); i++){
-                            System.out.println(banky.get(i).getID()+"  - "+banky.get(i).getName());
-                        }
+                        vypisBanky();
                         System.out.println("x: exit");
-                        while(!koniec){ 
-                            vyber = skener.nextLine();
-                            if(vyber!="x"){
-                                for(int i=0; i<banky.size(); i++){
-                                    if(banky.get(i).getID()==Integer.parseInt(vyber)){
-                                        banky.get(Integer.parseInt(vyber)).bankaMenu();
-                                        break;
-                                    }    
-                                    if(i==banky.size()-1){
-                                        System.out.println("Banka sa nenasla!");
-                                    }
-                                }
-                            }else {koniec=true;
-                                    break;}
-                        }
-                                                
+                        vyber = skener.nextLine();
+                        if(existINarraylist(vyber)){
+                            banky.get(Integer.parseInt(vyber)).bankaMenu();
+                        }else System.out.println("Banka sa nenasla!");
+                        break;
+                     
+                    case "2": 
+                        clearScreen();
+                        pridajBanku();
+                        System.out.println("banka bola pridana");
+                        
+                    case "3":
+                        clearScreen();
+                        System.out.println("Zadaj meno banky:");
+                        vyber = skener.nextLine();
+                        pridajBanku(vyber);
+                        System.out.println("banka bola pridana");
+                        
+                    case "4":
+                        clearScreen();
+                        vypisBanky();
+                        vyber= skener.nextLine();
+                        if(existINarraylist(vyber)){
+                            vymazBanku(vyber);
+                        }else System.out.println("Banka sa nenasla!");
+                        break;
             }       
                 
         }
