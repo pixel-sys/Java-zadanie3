@@ -17,6 +17,12 @@ public class PlatobnaKarta implements KartaAble
      this.typKarty=typKarty.VISA;
     }
     
+    public PlatobnaKarta(Karta typKarty){
+     cisloKarty=generateCardNumber();
+     PIN="0000";
+     this.typKarty=typKarty;
+    }
+    
     public PlatobnaKarta(String PIN){
      cisloKarty=generateCardNumber();
      this.PIN=PIN;
@@ -111,6 +117,7 @@ public class PlatobnaKarta implements KartaAble
             }
         }
     }
+    
     
     
     

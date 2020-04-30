@@ -50,15 +50,15 @@ public class BeznyUcet extends Ucet
         }
         return spot;
     }
+
 //setters
-    protected void pridajKartu(){
-        
-    }
-    protected void vymazKartu(){
-        
-    }
+    private void pridajKartu(int spot, Karta vyber){
+        karta[spot]= new PlatobnaKarta(vyber);
+    } 
     
-    
+    private void zmazKartu(String spot){
+        karta[Integer.parseInt(spot)]=null;
+    }    
 //menu
 
     @Override
@@ -126,17 +126,18 @@ public class BeznyUcet extends Ucet
                 case "6":
                     System.out.println("Pridaj kartu:");
                     if(findFreeSpot()>-1){
-                        (findFreeSpot());
+                        pridajKartaMenu(findFreeSpot());
                     }else System.out.println("Mas dosiahnuty maximalny pocet kariet!");
                     break;
                 
                 case "7":
                     BankAPP.clearScreen();
+                    System.out.println("vyber kartu kt. chces zmazat podla ID:");
                     vypisKarty();
-                    System.out.println("vyber kartu podla ID:");
-                    vyber = skener.nextLine();
+                    vyber = skener.nextLine();  
                     if (kotrolaVyberuKarty(vyber)) {
-                        karta[Integer.parseInt(vyber)].kartaMenu();
+                        zmazKartu(vyber);
+                        System.out.println("Karta bola zmazana");
                     } else {
                         System.err.println("zadali ste zly vstup!");
                     }
@@ -150,7 +151,39 @@ public class BeznyUcet extends Ucet
         }
     }
     
+    private void pridajKartaMenu(int spot){
+        Scanner skener = new Scanner(System.in);
+        String vyber="";
+        boolean koniec = false;
+        BankAPP.clearScreen();
+       while(!koniec){
+            System.out.println("vyber typ karty:");
+            System.out.println("1: Maestro:");
+            System.out.println("2: MasterCard ");
+            System.out.println("3: VISA");        
+            System.out.println("x: koniec");
+            
+            vyber= skener.nextLine();
+            switch(vyber){
+                case "1":
+                    pridajKartu(spot, Karta.MAESTRO);
+                    break;
+                                                
+                case "2":
+                    pridajKartu(spot, Karta.MASTERCARD);
+                    break;
+                
+                case "3":
+                    pridajKartu(spot, Karta.VISA);
+                    break;
+                    
+                case "x":
+                    koniec=true;
+                    break;    
+            }   
 
+       }
+    }
 }
 
     
