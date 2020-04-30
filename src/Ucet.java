@@ -63,6 +63,12 @@ public abstract class Ucet
         this.hotovost+=vklad;
     }
     
+    public void priratajUrok(){
+        int newHotovost=(int)(getHotovost()*(1+(getUrok()/100)));
+        setHotovost(newHotovost);
+        
+    }
+    
     protected void odratajHotovost(int vklad){
         this.hotovost-=vklad;
     }

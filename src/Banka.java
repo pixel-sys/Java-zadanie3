@@ -45,7 +45,11 @@ import java.util.Random;
                 && Integer.parseInt(index)>=0);
     }
     
-    
+    private void priratajUrokyALL(){
+        for(int i=0; i<klienti.size(); i++){
+            klienti.get(i).priratajUrokUctom();
+        }
+    }
  //setters
     private void zmazKlienta(String ID){
         klienti.remove(Integer.parseInt(ID));
@@ -63,6 +67,7 @@ import java.util.Random;
             System.out.println("2: Konto(klient) manažment");
             System.out.println("3: Pridaj klieta");
             System.out.println("4: Zmaz klieta");
+            System.out.println("5: pridaj vsetkym urok");
             System.out.println("x: Koniec");
             vyber = skener.nextLine();
             switch(vyber)
@@ -98,6 +103,10 @@ import java.util.Random;
                         zmazKlienta(vyber);
                     }else System.out.println("Konto neexistuje");
                     break;    
+                    
+                case "5":
+                    BankAPP.clearScreen();
+                    priratajUrokyALL();
                     
                     
             }

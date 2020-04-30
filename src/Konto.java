@@ -49,6 +49,15 @@ public class Konto
         ucty[Integer.parseInt(spot)]=null;
     }
     
+    
+    public void priratajUrokUctom(){
+         for(int i=0; i<ucty.length; i++){
+               if(ucty[i]!=null){
+                   ucty[i].priratajUrok();
+               }
+         }
+    }
+    
 //menu    
     public void kontoMenu(){
         Scanner skener = new Scanner(System.in);
