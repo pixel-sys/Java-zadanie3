@@ -5,7 +5,7 @@ import java.util.Random;
     public class Banka
     {
     private String meno; 
-    private static ArrayList<Konto> klienti;
+    private ArrayList<Konto> klienti;
     private static int kontoID=0;
     private int id;
     
@@ -26,7 +26,7 @@ import java.util.Random;
         return meno;
     }
     
-    public static void vypisKlientov(){
+    public void vypisKlientov(){
         System.out.println("Zoznam klientov:");
             for(int i=0; i<klienti.size(); i++){
                 System.out.println(i+"  - "+klienti.get(i).getName());
@@ -40,19 +40,18 @@ import java.util.Random;
         return r.nextInt((max - min) + 1) + min;
     }
     
-    private static boolean existINarraylist(String index){
+    private boolean existINarraylist(String index){
         return (Integer.parseInt(index)<=klienti.size()-1 
                 && Integer.parseInt(index)>=0);
     }
     
     
  //setters
-    private static void zmazKlienta(String ID){
+    private void zmazKlienta(String ID){
         klienti.remove(Integer.parseInt(ID));
     }
     
-    public void bankaMenu()
-    {
+    public void bankaMenu(){
         Scanner skener = new Scanner(System.in);
         String vyber = "";
         String menoKlienta = "";

@@ -11,7 +11,8 @@ public class BeznyUcet extends Ucet
         karta = new PlatobnaKarta [5];
         for(int i=0; i<karta.length; i++){
             karta[i]= new PlatobnaKarta();
-           }      
+           }
+        
           
     }
     
@@ -57,6 +58,7 @@ public class BeznyUcet extends Ucet
             System.out.println("2) vyber hotovost");
             System.out.println("3) zmen urok");
             System.out.println("4) vypis karty");
+            System.out.println("x) Koniec");
             
             vyber = skener.nextLine();
             switch(vyber)

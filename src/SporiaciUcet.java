@@ -40,6 +40,7 @@ public class SporiaciUcet extends BeznyUcet
             System.out.println("2) vyber hotovost");
             System.out.println("3) zmen urok");
             System.out.println("4) vypis karty");
+            System.out.println("x) Koniec");
             
             vyber = skener.nextLine();
             switch(vyber)

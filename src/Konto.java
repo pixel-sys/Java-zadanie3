@@ -5,16 +5,17 @@ public class Konto
 {
     private int id;
     private String meno;
-    protected static int ucetID=0;
+    private int ucetID=0;
     Ucet [] ucty;
     
-    
+//constructor    
     public Konto(String meno, int id){
         this.id=id;
         ucty= new Ucet [10];
         this.meno=meno;
     }
-    
+ 
+//getters    
     public int getID(){
         return id;
     }
@@ -27,7 +28,7 @@ public class Konto
         System.out.println("Zoznam uctov:");
            for(int i=0; i<ucty.length; i++){
                if(ucty[i]!=null){
-                System.out.println(ucty[i].getID()
+                System.out.println(i
                 +" - "+ucty[i].getCisloUctu()
                 +" - "+ucty[i].getTypUctu() 
                 +" - "+ucty[i].getHotovost());
@@ -35,6 +36,20 @@ public class Konto
             }
     }
     
+    private int findFreeSpot(){
+        int spot=-1;
+        for(int i=ucty.length-1; i>=0; i--){
+            if(ucty[i]==null)spot=i;
+        }
+        return spot;
+    }
+    
+//setters
+    private void zmazUcet(String spot){
+        ucty[Integer.parseInt(spot)]=null;
+    }
+    
+//menu    
     public void kontoMenu(){
         Scanner skener = new Scanner(System.in);
         String vyberUcet = "";
@@ -49,7 +64,7 @@ public class Konto
             System.out.println("1: Vypíš uctov");
             System.out.println("2: Ucet manažment");
             System.out.println("3: Pridaj ucet");
-            System.out.println("4: Zmaz konto");
+            System.out.println("4: Zmaz ucet");
             System.out.println("x: Koniec");
             
             vyberUcet = skener.nextLine();
@@ -63,30 +78,41 @@ public class Konto
                     vypisUcty();
                     break;
                 case "2":
-                /*not yet */
                     vypisUcty();
                     System.out.println("zadaj ID uctu:");
                     vyberUcet= skener.nextLine();
-                    for(int i=0; i<ucty.length; i++){
-                        if(ucty[i]!=null && ucty[i].getID()==Integer.parseInt(vyberUcet)){
-                            ucty[i].ucetMenu();
-                            break;
-                        }
-                    }        
+                    if(ucty[Integer.parseInt(vyberUcet)]!=null)
+                        ucty[Integer.parseInt(vyberUcet)].ucetMenu();
                     break;
                     
                 case "3":
                     System.out.println("Pridaj ucet:");
-                    pridajUcetMenu();
-                    menoKlienta= skener.nextLine();
+                    if(findFreeSpot()>-1){
+                        pridajUcetMenu(findFreeSpot());
+                    }else System.out.println("Mas dosiahnuty maximalny pocet uctov!");
                     break;
+                    
+                case "4":
+                    vypisUcty();
+                    System.out.println("zadaj ID uctu(ktory chces zmazat):");
+                    vyberUcet= skener.nextLine();
+                    if(ucty[Integer.parseInt(vyberUcet)]!=null 
+                        && Integer.parseInt(vyberUcet)<ucty.length-1 
+                        && Integer.parseInt(vyberUcet)>-1)
+                            {zmazUcet(vyberUcet);
+                             System.out.println("ucet boz zmazany");}
+                        
+                    break;
+            
+                       
                     
             }
         }
     }    
         
-    private void pridajUcetMenu(){
+    private void pridajUcetMenu(int spot){
         Scanner skener = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String vyber="";
         boolean koniec = false;
         int hotovost=0;
@@ -96,7 +122,7 @@ public class Konto
         int dobaSplacania=0;
        BankAPP.clearScreen();
        while(!koniec){
-            System.out.println("vyber typ uctu ucetu:");
+            System.out.println("vyber typ uctu:");
             System.out.println("1:  Bezny ucet:");
             System.out.println("11: Sporiaci ucet ");
             System.out.println("12: Firemny ucet");        
@@ -108,28 +134,32 @@ public class Konto
                 case "1":
                     System.out.println("zadaj hotovost:");
                     hotovost= skener.nextInt();
-                    ucty[ucetID]=new BeznyUcet(ucetID,"Bezny",Banka.generateCisloUctu(),hotovost);
+                    ucty[spot]=new BeznyUcet(ucetID,"Bezny",Banka.generateCisloUctu(),hotovost);
                     ucetID++;
+                    koniec=true;
                     break;
+                    
                                 
                 case "11":
                     System.out.println("zadaj hotovost:");
                     hotovost= skener.nextInt();
                     System.out.println("zadaj urok:");
                     urok= skener.nextDouble();
-                    ucty[ucetID]=new SporiaciUcet(ucetID,"Sporiaci",Banka.generateCisloUctu(),hotovost,urok);
+                    ucty[spot]=new SporiaciUcet(ucetID,"Sporiaci",Banka.generateCisloUctu(),hotovost,urok);
                     ucetID++;
+                    koniec=true;
                     break;
                 
                 case "12":
                     System.out.println("zadaj hotovost:");
                     hotovost= skener.nextInt();
                     System.out.println("zadaj nazov firmy:");
-                    menoFirmy= skener.nextLine();
+                    menoFirmy=  scanner.nextLine();
                     System.out.println("zadaj ICO:");
                     ICO= skener.nextInt();
-                    ucty[ucetID]=new FiremnyUcet(ucetID,"Firemny",Banka.generateCisloUctu(),hotovost,menoFirmy,ICO);
+                    ucty[spot]=new FiremnyUcet(ucetID,"Firemny",Banka.generateCisloUctu(),hotovost,menoFirmy,ICO);
                     ucetID++;
+                    koniec=true;
                     break;
                     
                 case "2":
@@ -137,8 +167,9 @@ public class Konto
                     hotovost= skener.nextInt();
                     System.out.println("zadaj dobu splacania:");
                     dobaSplacania= skener.nextInt();
-                    ucty[ucetID]=new Hypoteka(ucetID,"Hypo",Banka.generateCisloUctu(),hotovost,dobaSplacania);
+                    ucty[spot]=new Hypoteka(ucetID,"Hypo",Banka.generateCisloUctu(),hotovost,dobaSplacania);
                     ucetID++;
+                    koniec=true;
                     break;
                     
                 case "x":

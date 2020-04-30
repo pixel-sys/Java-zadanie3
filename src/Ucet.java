@@ -1,4 +1,5 @@
 
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -6,9 +7,10 @@ public abstract class Ucet
 {
     Scanner skener = new Scanner(System.in);
     private  int id;
-    static int cisloUctu, hotovost;
-    static double urok;
-    static String typUctu="";
+    protected int cisloUctu;
+    protected int hotovost;
+    protected double urok;
+    protected String typUctu="";
    
 // constructors
     public Ucet(int id,String typ, int cisloUctu, int hotovost){
@@ -33,19 +35,19 @@ public abstract class Ucet
         return id;
     }
     
-    public static  String getTypUctu(){
+    public  String getTypUctu(){
         return typUctu;
     }
     
-    protected static int getCisloUctu(){
+    protected int getCisloUctu(){
         return cisloUctu; 
     }
     
-    protected static int getHotovost(){
+    protected int getHotovost(){
         return hotovost;
     }
     
-    protected static double getUrok(){
+    protected double getUrok(){
         return urok;
     }
 

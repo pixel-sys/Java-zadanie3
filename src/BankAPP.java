@@ -71,6 +71,7 @@ public class BankAPP
                         vypisBanky();
                         System.out.println("x: exit");
                         vyber = skener.nextLine();
+                        if(vyber=="x"){break;}
                         if(existINarraylist(vyber)){
                             banky.get(Integer.parseInt(vyber)).bankaMenu();
                         }else System.out.println("Banka sa nenasla!");
@@ -80,18 +81,20 @@ public class BankAPP
                         clearScreen();
                         pridajBanku();
                         System.out.println("banka bola pridana");
-                        
+                        break;
                     case "3":
                         clearScreen();
                         System.out.println("Zadaj meno banky:");
                         vyber = skener.nextLine();
                         pridajBanku(vyber);
                         System.out.println("banka bola pridana");
-                        
+                        break;
                     case "4":
                         clearScreen();
                         vypisBanky();
-                        vyber= skener.nextLine();
+                        System.out.println("x: exit");
+                        vyber = skener.nextLine();
+                        if(vyber=="x"){break;}
                         if(existINarraylist(vyber)){
                             vymazBanku(vyber);
                         }else System.out.println("Banka sa nenasla!");

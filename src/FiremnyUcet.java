@@ -57,6 +57,7 @@ public class FiremnyUcet extends BeznyUcet
             System.out.println("4) zmen meno firmy");
             System.out.println("5) zmen ICO");
             System.out.println("6) vypis karty");
+            System.out.println("x) Koniec");
             
             
             

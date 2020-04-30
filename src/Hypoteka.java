@@ -59,11 +59,13 @@ public class Hypoteka extends Ucet
             
             System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
                     " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
-                    " urok: "+ getUrok());
+                    " urok: "+ getUrok()+ " vyska splatky: "+getVyskaSplatky()+
+                    " doba splacania: "+getDobaSpalcania());
             
             System.out.println("1) vloz splatku");
             System.out.println("2) zmen vysku splatky");
             System.out.println("3) zmen dobu splacania");
+            System.out.println("x) Koniec");
             
             
             vyber = skener.nextLine();
