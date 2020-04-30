@@ -7,31 +7,49 @@ public class PlatobnaKarta implements KartaAble
 {
     int cisloKarty;
     String PIN;
-  //constructors
+    Karta typKarty;
+    
+//constructors
           
     public PlatobnaKarta(){
      cisloKarty=generateCardNumber();
      PIN="0000";
+     this.typKarty=typKarty.VISA;
     }
     
     public PlatobnaKarta(String PIN){
      cisloKarty=generateCardNumber();
      this.PIN=PIN;
+      this.typKarty=typKarty.MAESTRO;
     }
     
     public PlatobnaKarta(String PIN,Karta typKarty){
         cisloKarty=generateCardNumber();
         this.PIN=PIN;
+        this.typKarty=typKarty;
+        
     }
-  //setters  
+ 
+//getters
+    public int getCisloKarty(){
+        return cisloKarty;
+    }
+    public String getTypKarty(){
+        return typKarty.toString();
+        
+   
+       
+    }
     private static int generateCardNumber(){
         int min=100;
         int max=999;
     Random r = new Random();
     return r.nextInt((max - min) + 1) + min;
     }
-  
-    public boolean checkOldPIN(){
+ 
+//setters  
+    
+    private boolean checkOldPIN(){
         Scanner skener = new Scanner(System.in);
         String in="";
         System.out.println("zadaj stare heslo:");
@@ -55,12 +73,45 @@ public class PlatobnaKarta implements KartaAble
         else return false;
     }
   
-//getters
-    public int getCisloKarty(){
-        return cisloKarty;
+    private void  setKartaTyp(Karta typKarty){
+        this.typKarty=typKarty;
     }
-    
-    
+
+    public void kartaMenu(){
+        Scanner skener = new Scanner(System.in);
+        String vyber = "";
+        boolean koniec=false;
+        
+        
+        while(!koniec){
+            BankAPP.clearScreen();
+                        
+            System.out.println("1) zmen PIN");
+            System.out.println("2) zmen typ karty");
+            System.out.println("x) Koniec");
+            
+            vyber = skener.nextLine();
+            switch(vyber)
+            {
+                case "1":
+                    if (setKartaPIN()){
+                        System.out.println("PIN bol zmeneny");
+                    }else System.out.println("zadal si zly PIN");;
+                    break;
+                    
+                case "2":
+                    System.out.println(java.util.Arrays.asList(typKarty.values()));
+                    vyber = skener.nextLine();
+                    setKartaTyp(Karta.valueOf(vyber));
+                    break;
+                    
+                case "x":
+                    koniec=true;
+                    break;
+                        
+            }
+        }
+    }
     
     
     

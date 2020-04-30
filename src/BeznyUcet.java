@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class BeznyUcet extends Ucet
 {
-    PlatobnaKarta [] karta;
+     PlatobnaKarta [] karta;
 
 // constructors    
     public BeznyUcet(int id,String typUctu, int cisloUctu, int hotovost)
@@ -28,9 +28,10 @@ public class BeznyUcet extends Ucet
     
 //getters
 
-    protected void vypisKarty(){
+    public void vypisKarty(){
         for(int i=0; i<karta.length; i++){
-            System.out.println("cislo k: "+karta[i].getCisloKarty());
+            System.out.println("cislo k: "+karta[i].getCisloKarty()+" typ karty: "
+                    + karta[i].getTypKarty());
         }
     }
 
@@ -58,6 +59,7 @@ public class BeznyUcet extends Ucet
             System.out.println("2) vyber hotovost");
             System.out.println("3) zmen urok");
             System.out.println("4) vypis karty");
+            System.out.println("5) karta management");
             System.out.println("x) Koniec");
             
             vyber = skener.nextLine();
@@ -81,6 +83,11 @@ public class BeznyUcet extends Ucet
                 case "4":
                     vypisKarty();
                     break;
+                
+                case "5":
+                    vypisKarty();
+                    PlatobnaKarta.kartaMenu();
+                    break;
                     
                 case "x":
                     koniec=true;
@@ -89,6 +96,8 @@ public class BeznyUcet extends Ucet
             }
         }
     }
+    
+
 }
 
     
