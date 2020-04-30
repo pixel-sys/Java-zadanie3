@@ -40,28 +40,43 @@ public class SporiaciUcet extends BeznyUcet
             System.out.println("2) vyber hotovost");
             System.out.println("3) zmen urok");
             System.out.println("4) vypis karty");
+            System.out.println("5) karta management");
             System.out.println("x) Koniec");
             
             vyber = skener.nextLine();
             switch(vyber)
             {
                 case "1":
+                    BankAPP.clearScreen();
                     vyber = skener.nextLine();
                     priratajHotovost(Integer.parseInt(vyber));
                     break;
                     
                 case "2":
+                    BankAPP.clearScreen();
                     vyber = skener.nextLine();
                     odratajHotovost(Integer.parseInt(vyber));    
                     break;
                     
                 case "3":
+                    BankAPP.clearScreen();
                     vyber = skener.nextLine();
                     setUrok(Double.valueOf(vyber));
                     break;
                     
                 case "4":
+                    BankAPP.clearScreen();
                     vypisKarty();
+                    break;
+                 
+                case "5":
+                    BankAPP.clearScreen();
+                    vypisKarty();
+                    System.out.println("vyber kartu podla ID:");
+                    vyber = skener.nextLine();
+                    if(kotrolaVyberuKarty(vyber)){
+                        karta[Integer.parseInt(vyber)].kartaMenu();
+                    }else System.err.println("zadali ste zly vstup!");
                     break;
                     
                 case "x":

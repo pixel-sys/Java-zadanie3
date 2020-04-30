@@ -57,6 +57,7 @@ public class FiremnyUcet extends BeznyUcet
             System.out.println("4) zmen meno firmy");
             System.out.println("5) zmen ICO");
             System.out.println("6) vypis karty");
+            System.out.println("7) karta management");
             System.out.println("x) Koniec");
             
             
@@ -65,32 +66,48 @@ public class FiremnyUcet extends BeznyUcet
             switch(vyber)
             {
                 case "1":
+                    BankAPP.clearScreen();
                     vyber = skener.nextLine();
                     priratajHotovost(Integer.parseInt(vyber));
                     break;
                     
                 case "2":
+                    BankAPP.clearScreen();
                     vyber = skener.nextLine();
                     odratajHotovost(Integer.parseInt(vyber));    
                     break;
                     
                 case "3":
+                    BankAPP.clearScreen();
                     vyber = skener.nextLine();
                     setUrok(Double.valueOf(vyber));
                     break;
                 
                 case "4":
+                    BankAPP.clearScreen();
                     vyber = skener.nextLine();
                     setMenoFirmy(vyber);
                    break;
                 
                 case "5":
+                    BankAPP.clearScreen();
                     vyber = skener.nextLine();
                     setICO(Integer.parseInt(vyber));
                    break;
                     
                 case "6":
+                    BankAPP.clearScreen();
                     vypisKarty();
+                    break;
+                
+                case "7":
+                    BankAPP.clearScreen();
+                    vypisKarty();
+                    System.out.println("vyber kartu podla ID:");
+                    vyber = skener.nextLine();
+                    if(kotrolaVyberuKarty(vyber)){
+                        karta[Integer.parseInt(vyber)].kartaMenu();
+                    }else System.err.println("zadali ste zly vstup!");
                     break;
                     
                 case "x":

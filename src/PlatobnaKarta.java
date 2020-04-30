@@ -36,9 +36,6 @@ public class PlatobnaKarta implements KartaAble
     }
     public String getTypKarty(){
         return typKarty.toString();
-        
-   
-       
     }
     private static int generateCardNumber(){
         int min=100;
@@ -94,12 +91,14 @@ public class PlatobnaKarta implements KartaAble
             switch(vyber)
             {
                 case "1":
+                    BankAPP.clearScreen();
                     if (setKartaPIN()){
                         System.out.println("PIN bol zmeneny");
                     }else System.out.println("zadal si zly PIN");;
                     break;
                     
                 case "2":
+                    BankAPP.clearScreen();
                     System.out.println(java.util.Arrays.asList(typKarty.values()));
                     vyber = skener.nextLine();
                     setKartaTyp(Karta.valueOf(vyber));
