@@ -70,8 +70,8 @@ public class Konto
         {
             
             System.out.println("Konto:"+ getName());        
-            System.out.println("1: Vypíš uctov");
-            System.out.println("2: Ucet manažment");
+            System.out.println("1: Vypis uctov");
+            System.out.println("2: Ucet manaĹľment");
             System.out.println("3: Pridaj ucet");
             System.out.println("4: Zmaz ucet");
             System.out.println("x: Koniec");
@@ -98,7 +98,7 @@ public class Konto
                     System.out.println("Pridaj ucet:");
                     if(findFreeSpot()>-1){
                         pridajUcetMenu(findFreeSpot());
-                    }else System.out.println("Mas dosiahnuty maximalny pocet uctov!");
+                    }else System.err.println("Mas dosiahnuty maximalny pocet uctov!");
                     break;
                     
                 case "4":

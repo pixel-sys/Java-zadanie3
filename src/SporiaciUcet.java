@@ -10,6 +10,15 @@ public class SporiaciUcet extends BeznyUcet
         super(id,typUctu,cisloUctu, hotovost,urok);
     }
 
+//getters
+    @Override
+    public void vypisUcet(){
+        System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
+            " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
+            " urok: "+ getUrok());
+    }
+    
+    
 //setters
     
     @Override
@@ -30,9 +39,7 @@ public class SporiaciUcet extends BeznyUcet
         
         
         while(!koniec){
-           System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
-                    " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
-                    " urok: "+ getUrok());
+            vypisUcet();
             
             System.out.println("1) vloz hotovost");
             System.out.println("2) vyber hotovost");

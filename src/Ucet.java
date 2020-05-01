@@ -48,6 +48,8 @@ public abstract class Ucet
     protected double getUrok(){
         return urok;
     }
+    
+    public abstract void vypisUcet();
 
 //setters
     protected void setUrok(double urok){

@@ -31,7 +31,7 @@ public class BeznyUcet extends Ucet
     protected void vypisKarty(){
         for(int i=0; i<karta.length; i++){
             if(karta[i]!=null){
-                System.out.println("cislo k: "+karta[i].getCisloKarty()
+                System.out.println(i+" cislo k: "+karta[i].getCisloKarty()
                 +" typ karty: "+ karta[i].getTypKarty());
             }
            }
@@ -52,6 +52,13 @@ public class BeznyUcet extends Ucet
         }
         return spot;
     }
+    
+    @Override
+    public void vypisUcet(){
+        System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
+            " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
+            " urok: "+ getUrok());
+    }
 
 //setters
     private void pridajKartu(int spot, Karta vyber){
@@ -71,9 +78,7 @@ public class BeznyUcet extends Ucet
         
         
         while(!koniec){
-           System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
-                    " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
-                    " urok: "+ getUrok());
+            vypisUcet();
             
             System.out.println("1) vloz hotovost");
             System.out.println("2) vyber hotovost");
@@ -127,7 +132,7 @@ public class BeznyUcet extends Ucet
                     System.out.println("Pridaj kartu:");
                     if(findFreeSpot()>-1){
                         pridajKartaMenu(findFreeSpot());
-                    }else System.out.println("Mas dosiahnuty maximalny pocet kariet!");
+                    }else System.err.println("Mas dosiahnuty maximalny pocet kariet!");
                     break;
                 
                 case "7":

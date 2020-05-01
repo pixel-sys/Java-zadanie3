@@ -26,6 +26,12 @@ public class FiremnyUcet extends BeznyUcet
         return ICO;
     }
     
+    @Override
+    public void vypisUcet(){
+    System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
+            " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
+            " urok: "+ getUrok()+" firma: "+getMenoFirmy()+" ICO: "+ getICO());
+    }
     
 //setters 
     protected void setMenoFirmy(String menoFirmy){
@@ -45,9 +51,7 @@ public class FiremnyUcet extends BeznyUcet
         
         
         while(!koniec){
-            System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
-                    " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
-                    " urok: "+ getUrok()+" firma: "+getMenoFirmy()+" ICO: "+ getICO());
+            vypisUcet();
             
             System.out.println("1) vloz hotovost");
             System.out.println("2) vyber hotovost");

@@ -24,6 +24,13 @@ public class Hypoteka extends Ucet
         return vyskaSplatky;
     } 
     
+    @Override
+    public void vypisUcet(){
+    System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
+        " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
+        " urok: "+ getUrok()+ " vyska splatky: "+getVyskaSplatky()+
+        " doba splacania: "+getDobaSpalcania());
+    }
         
 //setters        
     protected void setDobaSplacania(int dobaSplacania){
@@ -55,10 +62,7 @@ public class Hypoteka extends Ucet
         
         
         while(!koniec){
-            System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
-                    " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
-                    " urok: "+ getUrok()+ " vyska splatky: "+getVyskaSplatky()+
-                    " doba splacania: "+getDobaSpalcania());
+            vypisUcet();
             
             System.out.println("1) vloz splatku");
             System.out.println("2) zmen vysku splatky");

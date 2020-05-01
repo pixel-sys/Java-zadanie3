@@ -91,15 +91,16 @@ import java.util.Random;
                     break;
                 case "11":
                     BankAPP.clearScreen();
-                    vypisKlientov();
+                    vypisKlientovDetailed();
                     break;    
                 case "2":
                     BankAPP.clearScreen();
+                    vypisKlientov();
                     System.out.println("zadaj ID klienta");
                     vyber= skener.nextLine();
                     if(existINarraylist(vyber)){
                         klienti.get(Integer.parseInt(vyber)).kontoMenu();
-                    }else System.out.println("Konto neexistuje");
+                    }else System.err.println("Konto neexistuje");
                     break;
                 case "3":
                     BankAPP.clearScreen();
@@ -115,7 +116,7 @@ import java.util.Random;
                     vyber= skener.nextLine();
                     if(existINarraylist(vyber)){
                         zmazKlienta(vyber);
-                    }else System.out.println("Konto neexistuje");
+                    }else System.err.println("Konto neexistuje");
                     break;    
                     
                 case "5":

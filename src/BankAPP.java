@@ -96,7 +96,7 @@ public class BankAPP
                         if(vyber=="x"){break;}
                         if(existINarraylist(vyber)){
                             vymazBanku(vyber);
-                        }else System.out.println("Banka sa nenasla!");
+                        }else System.err.println("Banka sa nenasla!");
                         break;
             }       
                 

@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class PlatobnaKarta implements KartaAble
 {
+    static String rootPasswd="root";
     int cisloKarty;
     String PIN;
     Karta typKarty;
@@ -40,6 +41,9 @@ public class PlatobnaKarta implements KartaAble
     public int getCisloKarty(){
         return cisloKarty;
     }
+    private String getPIN(){
+        return this.PIN;
+    }
     public String getTypKarty(){
         return typKarty.toString();
     }
@@ -58,8 +62,7 @@ public class PlatobnaKarta implements KartaAble
         System.out.println("zadaj stare heslo:");
         in = skener.nextLine();
            
-        if(in==PIN) return true;
-            else return false; 
+        return in.equals(PIN);
     }
     
     public boolean setKartaPIN(){   
@@ -91,6 +94,7 @@ public class PlatobnaKarta implements KartaAble
                         
             System.out.println("1) zmen PIN");
             System.out.println("2) zmen typ karty");
+            System.out.println("3) zobraz heslo (sudo passwd required)");
             System.out.println("x) Koniec");
             
             vyber = skener.nextLine();
@@ -100,7 +104,7 @@ public class PlatobnaKarta implements KartaAble
                     BankAPP.clearScreen();
                     if (setKartaPIN()){
                         System.out.println("PIN bol zmeneny");
-                    }else System.out.println("zadal si zly PIN");;
+                    }else System.err.println("zadal si zly PIN");;
                     break;
                     
                 case "2":
@@ -109,7 +113,16 @@ public class PlatobnaKarta implements KartaAble
                     vyber = skener.nextLine();
                     setKartaTyp(Karta.valueOf(vyber));
                     break;
-                    
+                
+                case "3":
+                    BankAPP.clearScreen();
+                    System.out.println("Zadaj sudo passwd \"root\"");
+                    vyber = skener.nextLine();
+                    if(vyber.equals(rootPasswd)){
+                        System.out.println("PIN karty: \""+getPIN()+"\"");
+                    }else System.err.println("Zadal si zly sudo password!");
+                    break;
+                        
                 case "x":
                     koniec=true;
                     break;
