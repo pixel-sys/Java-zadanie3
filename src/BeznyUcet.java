@@ -121,7 +121,7 @@ public class BeznyUcet extends Ucet
                 case "5":
                     BankAPP.clearScreen();
                     vypisKarty();
-                    System.out.println("vyber kartu podla ID:");
+                    System.out.println("vyber kartu:");
                     vyber = skener.nextLine();
                     if(kotrolaVyberuKarty(vyber)){
                         karta[Integer.parseInt(vyber)].kartaMenu();

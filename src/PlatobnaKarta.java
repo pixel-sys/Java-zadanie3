@@ -90,7 +90,6 @@ public class PlatobnaKarta implements KartaAble
         
         
         while(!koniec){
-            BankAPP.clearScreen();
                         
             System.out.println("1) zmen PIN");
             System.out.println("2) zmen typ karty");

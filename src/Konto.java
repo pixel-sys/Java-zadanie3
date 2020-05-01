@@ -36,6 +36,17 @@ public class Konto
             }
     }
     
+        public void vypisUctyMin(){
+        System.out.println("    Zoznam uctov:");
+           for(int i=0; i<ucty.length; i++){
+               if(ucty[i]!=null){
+                System.out.println("     - "+ucty[i].getCisloUctu()
+                +" - "+ucty[i].getTypUctu() 
+                +" - "+ucty[i].getHotovost());
+               }
+            }
+    }
+    
     private int findFreeSpot(){
         int spot=-1;
         for(int i=ucty.length-1; i>=0; i--){

@@ -36,8 +36,8 @@ import java.util.Random;
     public void vypisKlientovDetailed(){
         System.out.println("Zoznam klientov a ich uctov:");
             for(int i=0; i<klienti.size(); i++){
-                System.out.println(i+"  - "+klienti.get(i).getName());
-                klienti.get(i).vypisUcty();
+                System.out.println(i+" - "+klienti.get(i).getName());
+                klienti.get(i).vypisUctyMin();
             }
     }        
         
@@ -96,7 +96,7 @@ import java.util.Random;
                 case "2":
                     BankAPP.clearScreen();
                     vypisKlientov();
-                    System.out.println("zadaj ID klienta");
+                    System.out.println("zvol klienta");
                     vyber= skener.nextLine();
                     if(existINarraylist(vyber)){
                         klienti.get(Integer.parseInt(vyber)).kontoMenu();
