@@ -30,9 +30,11 @@ public class BeznyUcet extends Ucet
 
     protected void vypisKarty(){
         for(int i=0; i<karta.length; i++){
-            System.out.println("cislo k: "+karta[i].getCisloKarty()+" typ karty: "
-                    + karta[i].getTypKarty());
-        }
+            if(karta[i]!=null){
+                System.out.println("cislo k: "+karta[i].getCisloKarty()
+                +" typ karty: "+ karta[i].getTypKarty());
+            }
+           }
     }
     
     protected boolean kotrolaVyberuKarty(String vstup){

@@ -51,8 +51,7 @@ public class BankAPP
         pridajBanku("MamkaBanka");
         
         while(!koniec) 
-        {   clearScreen();
-            System.out.println("Vyberte si z moznosti: ");
+        {   System.out.println("Vyberte si z moznosti: ");
             System.out.println("1: Vyber banku");
             System.out.println("2: pridaj banku (bez mena)");
             System.out.println("3: pridaj banku (s menom)");

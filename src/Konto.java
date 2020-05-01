@@ -24,7 +24,7 @@ public class Konto
         return meno;
     }
     
-    private void vypisUcty(){
+    public void vypisUcty(){
         System.out.println("Zoznam uctov:");
            for(int i=0; i<ucty.length; i++){
                if(ucty[i]!=null){

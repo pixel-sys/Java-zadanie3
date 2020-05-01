@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.util.Scanner;
 
 
@@ -72,7 +71,8 @@ public abstract class Ucet
     protected void odratajHotovost(int vklad){
         this.hotovost-=vklad;
     }
-    
+
+//menu   
     public abstract void ucetMenu();
            
 }

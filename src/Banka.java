@@ -33,6 +33,15 @@ import java.util.Random;
             }
     }
     
+    public void vypisKlientovDetailed(){
+        System.out.println("Zoznam klientov a ich uctov:");
+            for(int i=0; i<klienti.size(); i++){
+                System.out.println(i+"  - "+klienti.get(i).getName());
+                klienti.get(i).vypisUcty();
+            }
+    }        
+        
+    
     public static int generateCisloUctu(){
         int min=1000000;
         int max=9999999;
@@ -64,6 +73,7 @@ import java.util.Random;
         while(!koniec){
             System.out.println("Banka: "+getName());
             System.out.println("1: Vypíš klientov");
+            System.out.println("11: Vypíš klientov-detailed");
             System.out.println("2: Konto(klient) manažment");
             System.out.println("3: Pridaj klieta");
             System.out.println("4: Zmaz klieta");
@@ -79,6 +89,10 @@ import java.util.Random;
                     BankAPP.clearScreen();
                     vypisKlientov();
                     break;
+                case "11":
+                    BankAPP.clearScreen();
+                    vypisKlientov();
+                    break;    
                 case "2":
                     BankAPP.clearScreen();
                     System.out.println("zadaj ID klienta");
