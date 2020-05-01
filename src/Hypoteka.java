@@ -55,8 +55,6 @@ public class Hypoteka extends Ucet
         
         
         while(!koniec){
-            BankAPP.clearScreen();
-            
             System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
                     " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
                     " urok: "+ getUrok()+ " vyska splatky: "+getVyskaSplatky()+

@@ -71,9 +71,7 @@ public class BeznyUcet extends Ucet
         
         
         while(!koniec){
-            BankAPP.clearScreen();
-            
-            System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
+           System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
                     " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
                     " urok: "+ getUrok());
             

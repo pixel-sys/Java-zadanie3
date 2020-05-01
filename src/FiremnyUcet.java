@@ -45,8 +45,6 @@ public class FiremnyUcet extends BeznyUcet
         
         
         while(!koniec){
-            BankAPP.clearScreen();
-            
             System.out.println("ID uctu: "+getID()+" typ: "+getTypUctu()+
                     " cislo u.: "+getCisloUctu() +" hotovost: "+ getHotovost()+
                     " urok: "+ getUrok()+" firma: "+getMenoFirmy()+" ICO: "+ getICO());
